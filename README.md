@@ -8,20 +8,24 @@
 + 支持自定义表情面板  customEmojiFragmentFactory
 + 支持自定义更多模块面板 customMoreFragmentFactory
 + 支持@人功能   canAt
-
+  
 ## 集成方式  
 在根项目的build.gradle增加以下配置
-
+```
 allprojects {
     repositories {
         maven { url "https://jitpack.io" }
     }
 }
-在对应模块下的build.gradle中增加以下配置
+```
 
+在对应模块下的build.gradle中增加以下配置  
+```
 dependencies {
    implementation 'com.github.Jiaoshichun:ChatInput:1.0'
-    }
+ }
+```
+
 ## 使用方式  
 将ChatInputView放入布局文件中 它的直接父布局必须是LinearLayout   
 ```
