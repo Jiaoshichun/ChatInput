@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">ChatInput</string>
+  <string name="tab_hold_say">按住 说话</string>
+  <string name="tab_hold_say_release">松开 结束</string>
+  <string name="tab_hold_say_cancel">松开手指，取消发送</string>
+  <string name="txt_up_cancel_send">手指上滑，取消发送</string>
+    <string name="inputview">去inputView</string>
+</resources>

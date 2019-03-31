@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="ChatInputView">
+    <!--键盘图标-->
+    <attr format="reference" name="keyboard_icon"/>
+    <!--emoji图标-->
+    <attr format="reference" name="emoji_icon"/>
+    <!--语音图标-->
+    <attr format="reference" name="audio_icon"/>
+    <!--更多图标-->
+    <attr format="reference" name="more_icon"/>
+    <!--输入框文字颜色-->
+    <attr format="color|reference" name="edt_text_color"/>
+    <!--输入框可输入最大数-->
+    <attr format="integer" name="edt_max_length"/>
+    <!--发送按钮背景颜色-->
+    <attr format="reference" name="btn_send_bg"/>
+    <!--发送按钮文字颜色-->
+    <attr format="reference|color" name="btn_send_text_color"/>
+  </declare-styleable>
+</resources>

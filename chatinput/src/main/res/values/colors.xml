@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="input_div">#D5D8DC</color>
+  <color name="gray_de">#dedede</color>
+  <color name="gray_44">#444444</color>
+  <color name="txt_input_more">#76787F</color>
+    <color name="gray_ee">#eeeeee</color>
+  <color name="gray_cc">#cccccc</color>
+</resources>
