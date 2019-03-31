@@ -1,6 +1,6 @@
 ## ChatInput 仿微信输入框
 效果如下
-
+![demo](img/demo.gif)
 
 + 支持表情、录音、更多面板的开启和关闭 （默认全部开启） 
 + 支持自定义输入语音逻辑处理器（处理录音手势以及录音浮窗逻辑） customInputAudioProcessor 
@@ -9,8 +9,41 @@
 + 支持自定义更多模块面板 customMoreFragmentFactory
 + 支持@人功能   canAt
 
-## 使用方式
-将ChatInputView放入布局文件中 它的直接父布局必须是LinearLayout  
+## 集成方式  
+在根项目的build.gradle增加以下配置
+
+allprojects {
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+}
+在对应模块下的build.gradle中增加以下配置
+
+dependencies {
+   implementation 'com.github.Jiaoshichun:ChatInput:1.0'
+    }
+## 使用方式  
+将ChatInputView放入布局文件中 它的直接父布局必须是LinearLayout   
+```
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/rcview"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"
+      />
+  <com.heng.chatinput.ChatInputView
+      android:id="@+id/input_view"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      />
+</LinearLayout>
+```
 在Activity的onCreate中初始化ChatEditor  
 ```
   // 第一个参数是ChatInputView 第二个参数是与ChatInputView放入同一个LinearLayout 权重为1的view
