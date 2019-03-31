@@ -1,5 +1,5 @@
 ## ChatInput 仿微信输入框
-效果如下
+效果如下  
 ![demo](img/demo.gif)
 
 + 支持表情、录音、更多面板的开启和关闭 （默认全部开启） 
@@ -103,6 +103,29 @@ interface ChatInputListener {
 | btn_send_bg | 发送按钮背景 | 
 | btn_send_text_color | 发送文字颜色 |   
 
+## 播放语音听筒/外放切换  
+主要工具类PlayerModeManager   
+  
++ 语音改变播放模式实际只存储改变后的模式状态，在真正播放时才会以设置的模式进行播放   
++ 支持获取音频焦点，播放语音时，暂停其他音乐的播放，停止时恢复其他音乐的播放    
++ 插入耳机时， 会一直以耳机模式进行播放，但是允许改变模式状态   
+  
+**听筒模式播放时，会先从扬声器切换到听筒再进行播放(如果在播放前转为听筒模式，会导致其他音乐也会以听筒模式播放)，建议延迟一段时间后播放，否则前几秒无音(建议延迟1.2s)**   
+语音播放器的实现可参考ChatMediaPlayer  
+  
+最好在Application中进行初始化  
+```
+   //主要用于获取当前模式、设置默认的播放模式与注册耳机插拔监听器
+   PlayerModeManager.init(this,true)
+```  
+几个重要方法   
+```
+    PlayerModeManager.isSpeakerOn()  //是否是扬声器模式(切换听筒/外放时，通过该方法获取之前的模式)
+    PlayerModeManager.isReceiver()   //是否是听筒模式  该方法用于听筒模式播放音乐时，必须延迟一段时间（建议至少1s） 否则前几秒无声音
+    PlayerModeManager.onPlay()   //播放语音时调用该方法 该方法会使其他音乐暂停，并且使用当前的播放模式进行播放
+    PlayerModeManager.onStop()  //播放结束时 调用该方法 释放音频焦点 恢复外放播放
+    PlayerModeManager.setSpeakerOn(true)  //设置当前是否为外放模式 
+```
 ## 参考及引用  
 [emotionkeyboard](https://github.com/shinezejian/emotionkeyboard)  
 [easy_at](https://github.com/iYaoy/easy_at)

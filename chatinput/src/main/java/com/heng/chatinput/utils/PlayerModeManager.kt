@@ -24,12 +24,12 @@ object PlayerModeManager {
   }
 
   private const val AUDIO_PLAY_IS_SPEAKER_ON = "audio_play_is_speaker_on"
-  private const val defaultIsOpenSpeaker = false//默认听筒模式
+  private  var defaultIsOpenSpeaker = true//默认外放模式
   private var playMode = PlayerModeManager.PlayMode.Receiver
   private lateinit var context: Context
-  fun init(application: Context) {
+  fun init(application: Context,defaultIsOpenSpeaker:Boolean=true) {
     context = application.applicationContext
-
+    this.defaultIsOpenSpeaker=defaultIsOpenSpeaker
     playMode =
       if (isSpeakerOn()) PlayerModeManager.PlayMode.Speaker else PlayerModeManager.PlayMode.Receiver
     val intentFilter = IntentFilter()

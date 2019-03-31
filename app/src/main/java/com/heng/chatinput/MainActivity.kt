@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
+import com.heng.chatinput.utils.PlayerModeManager
 import java.io.File
 
 class MainActivity : AppCompatActivity(), ChatInputListener {
@@ -63,6 +64,12 @@ class MainActivity : AppCompatActivity(), ChatInputListener {
         //.disableVoice()                禁用语音录制
         .bindListener(this) //绑定事件回调
         .builder()
+    PlayerModeManager.init(this)
+    PlayerModeManager.isSpeakerOn()
+    PlayerModeManager.isReceiver()
+    PlayerModeManager.onPlay()
+    PlayerModeManager.onStop()
+    PlayerModeManager.setSpeakerOn(true)
   }
 
 }
